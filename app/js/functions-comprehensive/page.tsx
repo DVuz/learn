@@ -966,6 +966,8 @@ console.log(combined(10)); // Should output: ((10 + 5) * 3) - 2 = 43`}
             )}
           </div>
         </div>
+
+        
       </div>
     </JSLayout>
   );
