@@ -13,6 +13,7 @@ interface KnowledgeCardProps {
   buttonText: string;
   gradient: string;
   badgeText: string;
+  href: string;
 }
 
 const KnowledgeCard = ({
@@ -23,6 +24,7 @@ const KnowledgeCard = ({
   buttonText,
   gradient,
   badgeText,
+  href,
 }: KnowledgeCardProps) => (
   <Card className="group relative overflow-hidden border-0 bg-white shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
     {/* Gradient Background */}
@@ -60,7 +62,7 @@ const KnowledgeCard = ({
       </div>
 
       {/* Action Button */}
-      <Link href="/css">
+      <Link href={href}>
         <Button
           className={`w-full bg-gradient-to-r ${gradient} cursor-pointer hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl font-medium`}
           size="lg"
@@ -87,6 +89,7 @@ export default function FrontendKnowledgeHub() {
       gradient: 'from-orange-500 to-red-500',
       badgeText: 'Cơ bản',
       buttonText: 'Khám phá HTML',
+      href: '/html',
     },
     {
       icon: Palette,
@@ -101,6 +104,7 @@ export default function FrontendKnowledgeHub() {
       gradient: 'from-blue-500 to-indigo-600',
       badgeText: 'Styling',
       buttonText: 'Học CSS',
+      href: '/css',
     },
     {
       icon: Zap,
@@ -115,6 +119,7 @@ export default function FrontendKnowledgeHub() {
       gradient: 'from-yellow-500 to-orange-500',
       badgeText: 'Tương tác',
       buttonText: 'Thực hành JS',
+      href: '/js',
     },
   ];
 
@@ -175,7 +180,7 @@ export default function FrontendKnowledgeHub() {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Quick Start Links */}
       <section className="px-6 pb-20">
         <div className="max-w-4xl mx-auto">
           <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-2xl overflow-hidden">
@@ -209,18 +214,31 @@ export default function FrontendKnowledgeHub() {
                 </Badge>
               </div>
 
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
-              >
-                <Rocket className="w-5 h-5 mr-2" />
-                Bắt đầu học ngay
-              </Button>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link href="/html">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+                  >
+                    <Code className="w-5 h-5 mr-2" />
+                    Bắt đầu với HTML
+                  </Button>
+                </Link>
+
+                <Link href="/css">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+                  >
+                    <Palette className="w-5 h-5 mr-2" />
+                    Tiếp tục với CSS
+                  </Button>
+                </Link>
+              </div>
             </CardContent>
           </Card>
         </div>
       </section>
-
     </div>
   );
 }
